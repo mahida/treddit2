@@ -7,16 +7,13 @@
     <% @links.each do |link| %>
       <div class="well">
         <p><%= link_to "#{link.name}", link.link %></p>
-        <td><%= link.score %></td>
-
-        <td><%= link_to 'Show', link %></td>
-        <td><%= link_to 'Edit', edit_link_path(link) %></td>
-        <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <p><%= link.score %></p>
+        <%= link_to 'Show', link %>
+        <% if link.user == current_user %>
+          <%= link_to 'Edit', edit_link_path(link) %>
+          <%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
-
-<%= link_to 'New Link', new_link_path %>
