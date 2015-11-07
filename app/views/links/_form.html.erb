@@ -11,18 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :link %><br>
-    <%= f.text_field :link %>
+  <div class="form-group">
+    <%= f.text_field :name, placeholder: "Title", class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :link, placeholder: "Submit URL", class: "form-control" %>
   </div>
   <div class="field">
-    <%= f.label :score %><br>
-    <%= f.number_field :score %>
+    <%= f.number_field :score, placeholder: "Score" %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
