@@ -1,13 +1,18 @@
 Rails.application.routes.draw do
   
   devise_for :users
+  
+  # get 'upvote' => 'vote#upvote'
+
+  # get 'downvote' => 'vote#downvote'
+
+  resources :links do
+    member do
+      put "like", to: "links#upvote"
+      put "dislike", to: "links#downvote"
+    end
+  end
   root 'links#index'
-
-  get 'upvote' => 'vote#upvote'
-
-  get 'downvote' => 'vote#downvote'
-
-  resources :links
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -63,3 +68,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
+
