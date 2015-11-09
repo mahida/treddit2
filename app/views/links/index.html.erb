@@ -3,7 +3,7 @@
     <h2><%= link_to "#{link.name}", link %> </h2>
     <p>Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.email %></p>
    <div class="btn-group">
-      <a class="btn btn-default btn-sm" href="<%= link.link %>">Visit Link</a>
+      <a class="btn btn-default btn-sm" href="<%= link.link %>" target="_blank"  >Visit Link</a>
       <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
         <span class="glyphicon glyphicon-chevron-up"></span>
         Upvote
@@ -17,6 +17,3 @@
     </div>
   </div>
 <% end %>
-
-
-
